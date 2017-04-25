@@ -31,6 +31,8 @@ extension String {
     }
 }
 
+
+
 //字符串截取方法
 func subString(_ str: String,range: (start: Int,end: Int) ) -> String {
     
@@ -41,11 +43,17 @@ func subString(_ str: String,range: (start: Int,end: Int) ) -> String {
         Range.init(uncheckedBounds:
             (lower: startIndex,
              upper: endIndex)))
+}
+
+func throwError(){
     
-    
+    print("🙃🙃🙃🙃🙃🙃🙃🙃🙃🙃🙃🙃error🙃🙃🙃🙃🙃🙃🙃🙃🙃🙃🙃🙃")
+    print("the string you input is invalid")
 }
 
 func transfer(str: String) -> String {
+    
+    var result = ""
     
     var operators: [Character] = []
     var numbers: [Int] = []
@@ -54,8 +62,13 @@ func transfer(str: String) -> String {
     var currentIndex = 0
     
     for (index, character) in str.characters.enumerated(){
-        for (_operator) in operatorArr{
+        for (_index, _operator) in operatorArr.enumerated(){
             if character == _operator{
+                
+                if (_index == 4 || _index == 5){   //判断符号是否为小括号
+                    
+                }
+                
                 currentIndex = index
                 
                 //先转换为NSString 再截取
@@ -66,32 +79,50 @@ func transfer(str: String) -> String {
                  lastIndex,
                  currentIndex - lastIndex)))!)*/
                 
-                let item = str.subString(with: (start: lastIndex, end: currentIndex))
-                
-                numbers.append(Int(item)!)
-                    
+                if let item = Int(str.subString(with: (start: lastIndex, end: currentIndex))){
+                    result.append(String(item))
+                    result.append(_operator)
+                    numbers.append(item)
                     operators.append(_operator)
+                } else {
+                    throwError()
+                    return "null"
+                }
                 
                 lastIndex = currentIndex+1
+                
             } else if index == str.characters.count - 1{
                 
+                if let item = Int(str.subString(with: (start: lastIndex, end: str.characters.count))){
+                        numbers.append(item)
+                } else {
+                    throwError()
+                    return "null"
+                }
+                
+                print(str)
+                
+                print(numbers)
+                print(operators)
+                return "null"
             }
         }
     }
     
-    print(str.characters)
-    
-    print(numbers)
-    print(operators)
-    return "ull"
+    return "null"
 }
 
-let result = transfer(str: "12+12*23+12")
+//let result = transfer(str: "12+12*23+12")
 let str = "12+12*23+12"
 
 let startIndex = str.index(str.startIndex, offsetBy: 1)
 let endIndex = str.index(str.startIndex, offsetBy: 3)
+//
+//print(str.substring(with: Range.init(uncheckedBounds: (lower: startIndex, upper: endIndex))))
 
-print(str.substring(with: Range.init(uncheckedBounds: (lower: startIndex, upper: endIndex))))
+print(transfer(str: "12w+23*#45+12"))
+
+//print("strssss".subString(with: (1, 3)))
+
 
 
