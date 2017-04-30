@@ -10,7 +10,7 @@ import Foundation
 
 /// 使用数组定义栈
 class Stack {
-    var stack: [AnyObject]
+    private var stack: [AnyObject]  //应该定义为私有变量
     
     init() {
         stack = [AnyObject]()
