@@ -21,9 +21,7 @@ extension String {
         
         let startIndex = str.index(str.startIndex, offsetBy: with.start)
         let endIndex = str.index(str.startIndex, offsetBy: with.end)
-        
-        
-        
+
         return str.substring(with:
             Range.init(uncheckedBounds:
                 (lower: startIndex,
@@ -64,24 +62,23 @@ func transfer(str: String) -> String {
     for (index, character) in str.characters.enumerated(){
         for (_index, _operator) in operatorArr.enumerated(){
             if character == _operator{
-                
-                if (_index == 4 || _index == 5){   //判断符号是否为小括号
-                    
-                }
-                
                 currentIndex = index
                 
-                //先转换为NSString 再截取
-                /*let strNew:NSString = str as NSString
-                 numbers.append(Int(
-                 strNew.substring(with:
-                 NSMakeRange(
-                 lastIndex,
-                 currentIndex - lastIndex)))!)*/
+                if _index == 4{   //判断符号是否为小括号
+                    
+                    lastIndex = currentIndex+1
+                    //str.subString(with: (start: lastIndex, end: currentIndex))
+                    break
+                }
+                
+                if _index == 5 {
+                    let item = str.subString(with: (start: lastIndex, end: currentIndex))
+                    result.append("'" + transfer(str: item))
+                    break
+                }
                 
                 if let item = Int(str.subString(with: (start: lastIndex, end: currentIndex))){
-                    result.append(String(item))
-                    result.append(_operator)
+                    result.append("," + String(item))
                     numbers.append(item)
                     operators.append(_operator)
                 } else {
@@ -90,39 +87,51 @@ func transfer(str: String) -> String {
                 }
                 
                 lastIndex = currentIndex+1
-                
+                break
             } else if index == str.characters.count - 1{
                 
                 if let item = Int(str.subString(with: (start: lastIndex, end: str.characters.count))){
-                        numbers.append(item)
+                    
+                        result.append("," + String(item))
                 } else {
                     throwError()
                     return "null"
+                }
+                
+                for item in operators {
+                    result.append(item)
                 }
                 
                 print(str)
                 
                 print(numbers)
                 print(operators)
-                return "null"
+                return result.substring(from:str.index(str.startIndex, offsetBy: 1)
+)   //正确执行从这里返回值 结束该函数
             }
         }
     }
     
-    return "null"
+    
+    
+    return "error"
 }
 
-//let result = transfer(str: "12+12*23+12")
-let str = "12+12*23+12"
-
-let startIndex = str.index(str.startIndex, offsetBy: 1)
-let endIndex = str.index(str.startIndex, offsetBy: 3)
-//
-//print(str.substring(with: Range.init(uncheckedBounds: (lower: startIndex, upper: endIndex))))
-
-print(transfer(str: "12w+23*#45+12"))
-
-//print("strssss".subString(with: (1, 3)))
+print(transfer(str: "12+23*45+12"))
 
 
+
+for i in 1...10 {
+    if i>2 {
+        print("two")
+        break
+    }
+    
+    print(i)
+    
+    if i>5 {
+        print("five")
+        break
+    }
+}
 
