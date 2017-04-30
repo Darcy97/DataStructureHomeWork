@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FD5573C1EB5C57500E370C4"
-               BuildableName = "Stack_swift"
-               BlueprintName = "Stack_swift"
-               ReferencedContainer = "container:Stack_swift.xcodeproj">
+               BlueprintIdentifier = "1FD5574F1EB5C6E700E370C4"
+               BuildableName = "Swift_Stack"
+               BlueprintName = "Swift_Stack"
+               ReferencedContainer = "container:Swift_Stack.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FD5573C1EB5C57500E370C4"
-            BuildableName = "Stack_swift"
-            BlueprintName = "Stack_swift"
-            ReferencedContainer = "container:Stack_swift.xcodeproj">
+            BlueprintIdentifier = "1FD5574F1EB5C6E700E370C4"
+            BuildableName = "Swift_Stack"
+            BlueprintName = "Swift_Stack"
+            ReferencedContainer = "container:Swift_Stack.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FD5573C1EB5C57500E370C4"
-            BuildableName = "Stack_swift"
-            BlueprintName = "Stack_swift"
-            ReferencedContainer = "container:Stack_swift.xcodeproj">
+            BlueprintIdentifier = "1FD5574F1EB5C6E700E370C4"
+            BuildableName = "Swift_Stack"
+            BlueprintName = "Swift_Stack"
+            ReferencedContainer = "container:Swift_Stack.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FD5573C1EB5C57500E370C4"
-            BuildableName = "Stack_swift"
-            BlueprintName = "Stack_swift"
-            ReferencedContainer = "container:Stack_swift.xcodeproj">
+            BlueprintIdentifier = "1FD5574F1EB5C6E700E370C4"
+            BuildableName = "Swift_Stack"
+            BlueprintName = "Swift_Stack"
+            ReferencedContainer = "container:Swift_Stack.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
