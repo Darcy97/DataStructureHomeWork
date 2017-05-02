@@ -52,22 +52,39 @@ class Queue {
         return queue.count
     }
     
+    func clear() {
+        queue.removeAll(keepingCapacity: true)
+    }
+    
+    //销毁队列
+    public static func destroy(queue: inout Queue?) {
+        
+        queue = nil
+    }
+    
+    //类被销毁时调用
+    deinit {
+        print("destoryed")
+    }
+    
 }
 
-let myQueue = Queue.init()
+var myQueue:Queue? = Queue.init()
 
-myQueue.enqueue(object: "hello world" as AnyObject)
-myQueue.enqueue(object: "hello swift" as AnyObject)
-myQueue.enqueue(object: "hello queue" as AnyObject)
+myQueue?.enqueue(object: "hello world" as AnyObject)
+myQueue?.enqueue(object: "hello swift" as AnyObject)
+myQueue?.enqueue(object: "hello queue" as AnyObject)
 
-print(myQueue.peek()!)
-print(myQueue.size())
+print(myQueue?.peek()!)
+print(myQueue?.size())
 
-print(myQueue.dequeue()!)
-print(myQueue.peek()!)
-print(myQueue.size())
+print(myQueue?.dequeue()!)
+print(myQueue?.peek()!)
+print(myQueue?.size())
 
+myQueue?.clear()
 
+Queue.destroy(queue: &myQueue)
 
 
 

@@ -39,22 +39,43 @@ class Stack {
     func size() -> Int {
         return stack.count
     }
+    
+    func clear() {
+        stack.removeAll(keepingCapacity: true)
+    }
+    
+    //销毁栈
+    public static func destroy( stack: inout Stack?) {
+        
+        stack = nil
+    }
+    
+    //类被销毁时调用
+    deinit {
+        print("destoryed")
+    }
+    
 }
 
 
-let myStack = Stack.init()
+var myStack:Stack? = Stack.init()
 
-myStack.push(object: "hello" as AnyObject)
+myStack?.push(object: "hello" as AnyObject)
 
-myStack.push(object: "hello swift" as AnyObject)
+myStack?.push(object: "hello swift" as AnyObject)
 
-myStack.push(object: "hello stack" as AnyObject)
+myStack?.push(object: "hello stack" as AnyObject)
 
-print(myStack.isEmpty())
-print(myStack.pop()!)
-print(myStack.peek()!)
-print(myStack.size())
-print(myStack.isEmpty())
+print(myStack?.isEmpty())
+print(myStack?.pop()!)
+print(myStack?.peek()!)
+print(myStack?.size())
+print(myStack?.isEmpty())
+
+myStack?.clear()
+
+Stack.destroy(stack: &myStack)
+
 
 
 
